@@ -1,5 +1,7 @@
-
-
+#
+#  gut_microbiome_respiratory_disease
+#
+# 
 #--------------------------------
 # 
 # taxon-specific Cox
@@ -49,7 +51,7 @@ coxres <-
     
     res <- rbindlist(res)
     res <- res[order(-abs(Beta))]
-    res[,phdtest:= unlist(lapply(phtest, function(test){test$table['GLOBAL','p']}))]
+    res[,phtest:= unlist(lapply(phtest, function(test){test$table['GLOBAL','p']}))]
     res[,FDR:= p.adjust(p = P_value, method = "fdr")]
     return(res)
   })
